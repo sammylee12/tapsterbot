@@ -3,6 +3,7 @@ core = require("./core.js");
 delay = 0;
 longDelay = 250;
 shortDelay = 100;
+oneSixteenth = 250;
 
 xAr = 0;
 yAr = 1;
@@ -233,6 +234,14 @@ darth = function() {
     playAdv("4f3 4f3 4f3 3c3s 1g3s 4f3 3c3s 1g3s 8f3 4c4 4c4 4c4 3c4s 1g3s 4e3 3c3s 1g3s 8f3 4f4 3f3 1f3 4f4 3e4 1d4s 1d4 1c4s 2d4 4f3s 4b3 3a3s 1a3 1g3s 1g3 2g3s 4c3s 4e3 3c3s 1e3 4g3s 3f3 1g3s 8c4 4f4 3f3 1f3 4f4 3e4 1d4s 1d4 1c4s 2d4 4f3s 4b3 3a3s 1a3 1g3s 1g3 2g3s 4c3s 4e3 3c3s 1g3s 4f3 3c3s 1g3s 8f3");
 }
 
+merryXmas = function() {
+    playAdv("2d3 2g3 1g3 1a3 1g3 1f3s 2e3 2e3 2e3 2a3 1a3 1b3 1a3 1g3 2f3s 2d3 2d3 2b3 1b3 1c4 1b3 1a3 2g3 2e3 1d3 1d3 2e3 2a3 2f3s 4g3 2d3 2g3 2g3 2g3 4f3s 2f3s 2g3 2f3s 2e3 4d3 2a3 2b3 2a3 2g3 2d4 2d3 1d3 1d3 2e3 2a3 2f3s 4g3");
+}
+
+silentNight = function() {
+    playAdv("6g3 2a3 4g3 10e3 6g3 2a3 4g3 10e3 8d4 4d4 8b3 8c4 4c4 8g3 8a3 4a3 6c4 2b3 4a3 6g3 2a3 4g3 10e3 8a3 2a3 6c4 2b3 4a3 6g3 2a3 4g3 10e3 6d4 2d4 4d4 6f4 2d4 4b3 12c4 10e4 6c4 2g3 4e3 6g3 2f3 4d3 16c3");
+}
+
 qtr = function(key) {
     positionPressLift(key);
 }
@@ -259,20 +268,25 @@ positionPressLift = function(key) {
     setTimeout(function(){ go(key.lifted[xAr],  key.lifted[yAr],    key.lifted[zAr]);   },increment(shortDelay));
     
     setTimeout(function(){ go(key.pressed[xAr], key.pressed[yAr],   key.pressed[zAr]);  },increment(longDelay));
-    setTimeout(function(){ ledOn();  },delay);
+    setTimeout(function(){ ledOff();  },delay);
 
     setTimeout(function(){ go(key.lifted[xAr],  key.lifted[yAr],    key.lifted[zAr]);   },increment(shortDelay));
-    setTimeout(function(){ ledOff();   },delay);
+    setTimeout(function(){ ledOn();   },delay);
 }
 
 positionPressLift2 = function(key, length) {
+
     setTimeout(function(){ go(key.lifted[xAr],  key.lifted[yAr],    key.lifted[zAr]);   },increment(shortDelay));
 
     setTimeout(function(){ go(key.pressed[xAr], key.pressed[yAr],   key.pressed[zAr]);  },increment(length * shortDelay));
-    setTimeout(function(){ ledOn();  },delay);
+    setTimeout(function(){ ledOff();  },delay);
 
     setTimeout(function(){ go(key.lifted[xAr],  key.lifted[yAr],    key.lifted[zAr]);   },increment(shortDelay));
-    setTimeout(function(){ ledOff();   },delay);
+    setTimeout(function(){ ledOn();   },delay);
+}
+
+getDelay = function(length) {
+    return oneSixteenth * length - shortDelay * 2;
 }
 
 increment = function(incrementBy) {

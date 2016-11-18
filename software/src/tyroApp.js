@@ -10,21 +10,21 @@ zAr = 2;
 
 homeButton = function() {
     var homeButton = {
-        pressed:    [48, 14, -168],
-        lifted:     [48, 14, -150]
+        pressed:    [56, 22, -171],
+        lifted:     [62, 22, -158]
     };
 
-    positionPressLift2(homeButton, 2);
+    positionPressLift(homeButton, 4);
 
 
     reset();
 }
 
 
-positionPressLift2 = function(key, length) {
+positionPressLift = function(key, length) {
     setTimeout(function(){ go(key.lifted[xAr],  key.lifted[yAr],    key.lifted[zAr]);   },increment(shortDelay));
-    setTimeout(function(){ go(key.pressed[xAr], key.pressed[yAr],   key.pressed[zAr]);  },increment(length * shortDelay));
-    setTimeout(function(){ go(key.lifted[xAr],  key.lifted[yAr],    key.lifted[zAr]);   },increment(shortDelay));
+    setTimeout(function(){ go(key.pressed[xAr], key.pressed[yAr],   key.pressed[zAr]);  },increment(3 * longDelay));
+    setTimeout(function(){ go(key.lifted[xAr],  key.lifted[yAr],    key.lifted[zAr]);   },increment(2 * longDelay));
 }
 
 increment = function(incrementBy) {

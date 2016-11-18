@@ -29,7 +29,7 @@ board.on("ready", function() {
     });
 
     // Move to starting point
-    var max = 15;
+    var max = 45;
     var min = 5;
     var range = max - min;
     servo1.to(min);
