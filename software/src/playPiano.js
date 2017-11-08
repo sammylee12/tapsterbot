@@ -40,13 +40,19 @@ tap = function(key, length) {
         lifted: [-38, -8,-145]
     };
 
+    var b = {
+        pressed: [-50, -12, -158],
+        lifted: [-50, -12,-145]
+    };
+
     var map = {
         "c"     : c,
         "d"     : d,
         "e"     : e,
         "f"     : f,
         "g"     : g,
-        "a"     : a
+        "a"     : a,
+        "b"     : b
     }
     
     if (typeof length == 'undefined') {
@@ -216,6 +222,10 @@ playNoteAdv = function(note) {
 
 jingleBells = function() {
     play("e e ee e e ee e g c d eeee f f f f f e e e e d d e dd gg e e ee e e ee e g c d eeee f f f f f e e e g g f d cccc");
+}
+
+twinkle = function() {
+    play("c c g g a a gg f f e e d d cc g g f f e e dd g g f f e e dd c c g g a a gg f f e e d d cc");
 }
 
 jingleBells16 = function() {
